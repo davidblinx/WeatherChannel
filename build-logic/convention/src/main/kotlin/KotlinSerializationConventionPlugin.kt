@@ -13,6 +13,7 @@ internal class KotlinSerializationConventionPlugin : Plugin<Project> {
 
             dependencies {
                 "implementation"(libs.getLibrary("kotlin-serialization-json"))
+                "implementation"(libs.getLibrary("androidx-annotation-experimental"))
             }
         }
     }

@@ -22,6 +22,8 @@ internal object NetworkModule {
 
     @[Provides Singleton]
     fun provideHttpClient(): HttpClient = HttpClient(OkHttp) {
+        expectSuccess = false
+        
         defaultRequest {
             contentType(ContentType.Application.Json)
             accept(ContentType.Application.Json)
