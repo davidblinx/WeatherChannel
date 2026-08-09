@@ -23,5 +23,10 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = "WeatherChannel"
 include(":app")
+include(":core:coil")
+include(":core:coroutines")
+include(":core:mvi")

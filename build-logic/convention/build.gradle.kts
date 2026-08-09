@@ -66,5 +66,10 @@ gradlePlugin {
             id = libs.plugins.convention.library.get().pluginId
             implementationClass = "AndroidLibraryConventionPlugin"
         }
+
+        register("androidLibraryComposeConventionPlugin") {
+            id = libs.plugins.convention.compose.library.get().pluginId
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
     }
 }
