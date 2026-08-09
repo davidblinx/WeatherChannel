@@ -36,7 +36,7 @@ fun ForecastRow(
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                items(days) { day -> ForecastDayItem(uiModel = day) }
+                items(days, key = { day -> day.dayLabel }) { day -> ForecastDayItem(uiModel = day) }
             }
         }
     }

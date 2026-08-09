@@ -27,6 +27,8 @@ fun CurrentWeatherHeader(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        Text(text = uiModel.locationName, style = MaterialTheme.typography.titleLarge)
+
         Text(text = uiModel.condition, style = MaterialTheme.typography.headlineSmall)
 
         Row(

@@ -1,4 +1,4 @@
-package com.david.weatherchannel.presentation.weather.details.component
+package com.david.weatherchannel.presentation.shared.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
-import com.david.weatherchannel.presentation.weather.details.preview.ErrorContentPreviewProvider
+import com.david.weatherchannel.presentation.shared.ui.preview.ErrorContentPreviewProvider
 
 @Composable
 fun ErrorContent(message: String?, onRetry: () -> Unit, modifier: Modifier = Modifier) {

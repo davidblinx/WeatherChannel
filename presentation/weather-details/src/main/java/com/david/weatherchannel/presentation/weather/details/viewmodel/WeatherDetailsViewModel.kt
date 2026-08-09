@@ -8,8 +8,8 @@ import com.david.weatherchannel.core.navigation.NavigationOptions
 import com.david.weatherchannel.core.navigation.Navigator
 import com.david.weatherchannel.core.navigation.SearchDestination
 import com.david.weatherchannel.core.navigation.WeatherDetailsDestination
-import com.david.weatherchannel.core.ui.state.UIStateHolder
 import com.david.weatherchannel.core.ui.state.asUIStateHolder
+import com.david.weatherchannel.core.ui.state.mapSuccess
 import com.david.weatherchannel.core.ui.state.toLoading
 import com.david.weatherchannel.domain.usecase.LoadWeatherDetailsUseCase
 import com.david.weatherchannel.domain.usecase.WeatherContent
@@ -60,14 +60,7 @@ class WeatherDetailsViewModel @AssistedInject constructor(
         updateState { copy(weatherContent = toLoading()) }
         viewModelScope.launch {
             val holder = loadWeatherDetailsUseCase.execute(lat, lon).asUIStateHolder()
-            updateState {
-                copy(
-                    weatherContent = UIStateHolder(
-                        uiState = holder.uiState,
-                        payload = holder.payload?.let(::toContentUiModel),
-                    ),
-                )
-            }
+            updateState { copy(weatherContent = holder.mapSuccess(::toContentUiModel)) }
         }
     }
 

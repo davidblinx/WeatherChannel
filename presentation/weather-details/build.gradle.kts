@@ -12,6 +12,7 @@ dependencies {
     implementation(projects.core.network)
     implementation(projects.core.uiState)
     implementation(projects.core.coil)
+    implementation(projects.presentation.shared.ui)
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)

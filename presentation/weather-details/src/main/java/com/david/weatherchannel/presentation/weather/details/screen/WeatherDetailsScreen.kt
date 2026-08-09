@@ -17,10 +17,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.david.weatherchannel.core.ui.state.RenderContent
+import com.david.weatherchannel.presentation.shared.ui.ErrorContent
+import com.david.weatherchannel.presentation.shared.ui.LoadingContent
 import com.david.weatherchannel.presentation.weather.details.component.CurrentWeatherHeader
-import com.david.weatherchannel.presentation.weather.details.component.ErrorContent
 import com.david.weatherchannel.presentation.weather.details.component.ForecastRow
-import com.david.weatherchannel.presentation.weather.details.component.LoadingContent
 import com.david.weatherchannel.presentation.weather.details.component.NoLocationSelected
 import com.david.weatherchannel.presentation.weather.details.component.WeatherDetailsGrid
 import com.david.weatherchannel.presentation.weather.details.model.WeatherDetailsAction
@@ -66,10 +66,12 @@ fun WeatherDetailsScreen(
                         verticalArrangement = Arrangement.spacedBy(16.dp),
                     ) {
                         CurrentWeatherHeader(uiModel = content.header)
+
                         WeatherDetailsGrid(
                             items = content.details,
                             modifier = Modifier.padding(horizontal = 16.dp),
                         )
+
                         if (content.forecast.isNotEmpty()) {
                             ForecastRow(
                                 days = content.forecast,

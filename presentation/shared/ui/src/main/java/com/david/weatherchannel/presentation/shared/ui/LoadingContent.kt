@@ -1,4 +1,4 @@
-package com.david.weatherchannel.presentation.weather.details.component
+package com.david.weatherchannel.presentation.shared.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

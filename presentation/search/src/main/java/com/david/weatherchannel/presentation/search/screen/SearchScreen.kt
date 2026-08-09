@@ -1,15 +1,31 @@
 package com.david.weatherchannel.presentation.search.screen
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.unit.dp
+import com.david.weatherchannel.core.ui.state.RenderContent
+import com.david.weatherchannel.presentation.search.component.LocationResultsList
+import com.david.weatherchannel.presentation.search.component.MessageContent
 import com.david.weatherchannel.presentation.search.model.SearchAction
 import com.david.weatherchannel.presentation.search.model.SearchScreenState
+import com.david.weatherchannel.presentation.search.preview.SearchScreenStatePreviewProvider
+import com.david.weatherchannel.presentation.shared.ui.ErrorContent
+import com.david.weatherchannel.presentation.shared.ui.LoadingContent
 
 @Composable
 fun SearchScreen(
@@ -17,21 +33,66 @@ fun SearchScreen(
     onAction: (SearchAction) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Box(
-        modifier = modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center,
-    ) {
-        Button(onClick = { onAction(SearchAction.OnCitySelected(lat = 51.5074, lon = -0.1278)) }) {
-            Text(text = "Select city")
-        }
+    Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
+        SearchField(
+            query = state.query,
+            onQueryChange = { onAction(SearchAction.OnQueryChange(it)) },
+            onSubmit = { onAction(SearchAction.OnSearchSubmit) },
+            modifier = Modifier.fillMaxWidth(),
+        )
+
+        state.results.RenderContent(
+            idleContent = {
+                MessageContent(
+                    text = "Search for a city to see its weather",
+                    modifier = Modifier.fillMaxSize(),
+                )
+            },
+            loadingContent = { LoadingContent() },
+            errorContent = { message ->
+                ErrorContent(message = message, onRetry = { onAction(SearchAction.OnRetryClick) })
+            },
+            successContent = { locations ->
+                if (locations.isEmpty()) {
+                    MessageContent(text = "No matching cities found", modifier = Modifier.fillMaxSize())
+                } else {
+                    LocationResultsList(
+                        results = locations,
+                        onLocationClick = { location -> onAction(SearchAction.OnCitySelected(location)) },
+                    )
+                }
+            },
+        )
     }
+}
+
+@Composable
+private fun SearchField(
+    query: String,
+    onQueryChange: (String) -> Unit,
+    onSubmit: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChange,
+        modifier = modifier.padding(bottom = 16.dp),
+        label = { Text(text = "City") },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+        keyboardActions = KeyboardActions(onSearch = { onSubmit() }),
+        trailingIcon = {
+            IconButton(onClick = onSubmit) {
+                Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
+            }
+        },
+    )
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun SearchScreenPreview() {
-    SearchScreen(
-        state = SearchScreenState,
-        onAction = {},
-    )
+private fun SearchScreenPreview(
+    @PreviewParameter(SearchScreenStatePreviewProvider::class) state: SearchScreenState,
+) {
+    SearchScreen(state = state, onAction = {})
 }

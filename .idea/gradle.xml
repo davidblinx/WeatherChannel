@@ -35,6 +35,8 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/presentation" />
             <option value="$PROJECT_DIR$/presentation/search" />
+            <option value="$PROJECT_DIR$/presentation/shared" />
+            <option value="$PROJECT_DIR$/presentation/shared/ui" />
             <option value="$PROJECT_DIR$/presentation/weather-details" />
           </set>
         </option>

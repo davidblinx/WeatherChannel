@@ -19,8 +19,5 @@ interface WeatherRepository {
         lang: String? = null,
     ): ApiResponse<ForecastEntity>
 
-    suspend fun getCoordinatesByLocationName(
-        query: String,
-        limit: Int? = null,
-    ): ApiResponse<List<GeocodingResultEntity>>
+    suspend fun getCoordinatesByLocationName(query: String): ApiResponse<List<GeocodingResultEntity>>
 }

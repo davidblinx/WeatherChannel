@@ -35,10 +35,7 @@ internal class WeatherRepositoryImpl @Inject constructor(
         weatherService.getForecastByCoordinates(latitude, longitude, lang)
             .mapSuccess(forecastMapper::map)
 
-    override suspend fun getCoordinatesByLocationName(
-        query: String,
-        limit: Int?,
-    ): ApiResponse<List<GeocodingResultEntity>> =
-        weatherService.getCoordinatesByLocationName(query, limit)
+    override suspend fun getCoordinatesByLocationName(query: String): ApiResponse<List<GeocodingResultEntity>> =
+        weatherService.getCoordinatesByLocationName(query)
             .mapSuccess { map(geocodingResultMapper::map) }
 }

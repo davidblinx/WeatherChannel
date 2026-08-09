@@ -42,11 +42,10 @@ class WeatherService @Inject constructor(
 
     suspend fun getCoordinatesByLocationName(
         query: String,
-        limit: Int? = null,
     ): ApiResponse<List<GeocodingResultDto>> =
         httpClient.getApiResponse("${ApiConfig.GEOCODING_BASE_URL}/${ApiConfig.GEOCODING_API_VERSION}${ApiEndpoints.DIRECT}") {
             parameter(GeocodingApiParams.QUERY, query)
             parameter(GeocodingApiParams.APP_ID, ApiConfig.API_KEY)
-            limit?.let { parameter(GeocodingApiParams.LIMIT, it) }
+            parameter(GeocodingApiParams.LIMIT, 10)
         }
 }
