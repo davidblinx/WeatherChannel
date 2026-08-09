@@ -1,0 +1,21 @@
+<resources>
+    <string name="error_generic_message">Something went wrong</string>
+    <string name="retry">Retry</string>
+    <string name="action_search">Search</string>
+    <string name="today">Today</string>
+
+    <string name="search_idle_message">Search for a city to see its weather</string>
+    <string name="search_no_results_message">No matching cities found</string>
+    <string name="search_field_label">City</string>
+
+    <string name="weather_details_search_content_description">Search for a city</string>
+    <string name="no_location_selected_message">Select a city to see its weather</string>
+    <string name="weather_details_section_title">Weather details</string>
+    <string name="forecast_section_title">5-day forecast</string>
+    <string name="weather_detail_label_humidity">Humidity</string>
+    <string name="weather_detail_label_wind">Wind</string>
+    <string name="weather_detail_label_pressure">Pressure</string>
+    <string name="weather_detail_label_visibility">Visibility</string>
+    <string name="weather_detail_label_sunrise">Sunrise</string>
+    <string name="weather_detail_label_sunset">Sunset</string>
+</resources>

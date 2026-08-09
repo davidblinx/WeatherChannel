@@ -8,8 +8,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.david.weatherchannel.core.resources.R
 
 @Composable
 fun NoLocationSelected(onSearchClick: () -> Unit, modifier: Modifier = Modifier) {
@@ -18,8 +20,8 @@ fun NoLocationSelected(onSearchClick: () -> Unit, modifier: Modifier = Modifier)
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            Text(text = "Select a city to see its weather")
-            Button(onClick = onSearchClick) { Text(text = "Search") }
+            Text(text = stringResource(R.string.no_location_selected_message))
+            Button(onClick = onSearchClick) { Text(text = stringResource(R.string.action_search)) }
         }
     }
 }

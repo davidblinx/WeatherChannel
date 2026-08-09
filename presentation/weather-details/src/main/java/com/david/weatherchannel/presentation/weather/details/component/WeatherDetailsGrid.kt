@@ -10,9 +10,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import com.david.weatherchannel.core.resources.R
 import com.david.weatherchannel.presentation.weather.details.model.WeatherDetailItemUiModel
 import com.david.weatherchannel.presentation.weather.details.preview.WeatherDetailsGridPreviewProvider
 import kotlinx.collections.immutable.ImmutableList
@@ -27,7 +29,7 @@ fun WeatherDetailsGrid(
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            Text(text = "Weather details", style = MaterialTheme.typography.titleMedium)
+            Text(text = stringResource(R.string.weather_details_section_title), style = MaterialTheme.typography.titleMedium)
 
             FlowRow(
                 modifier = Modifier.fillMaxWidth(),

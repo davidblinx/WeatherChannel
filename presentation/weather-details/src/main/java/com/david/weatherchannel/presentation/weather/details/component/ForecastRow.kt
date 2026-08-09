@@ -12,9 +12,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import com.david.weatherchannel.core.resources.R
 import com.david.weatherchannel.presentation.weather.details.model.ForecastDayUiModel
 import kotlinx.collections.immutable.ImmutableList
 import com.david.weatherchannel.presentation.weather.details.preview.ForecastRowPreviewProvider
@@ -27,7 +29,7 @@ fun ForecastRow(
     Card(modifier = modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(vertical = 16.dp)) {
             Text(
-                text = "5-day forecast",
+                text = stringResource(R.string.forecast_section_title),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(horizontal = 16.dp),
             )

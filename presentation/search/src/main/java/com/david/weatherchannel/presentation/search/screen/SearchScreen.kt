@@ -14,10 +14,12 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import com.david.weatherchannel.core.resources.R
 import com.david.weatherchannel.core.ui.state.RenderContent
 import com.david.weatherchannel.presentation.search.component.LocationResultsList
 import com.david.weatherchannel.presentation.search.component.MessageContent
@@ -44,7 +46,7 @@ fun SearchScreen(
         state.results.RenderContent(
             idleContent = {
                 MessageContent(
-                    text = "Search for a city to see its weather",
+                    text = stringResource(R.string.search_idle_message),
                     modifier = Modifier.fillMaxSize(),
                 )
             },
@@ -54,7 +56,10 @@ fun SearchScreen(
             },
             successContent = { locations ->
                 if (locations.isEmpty()) {
-                    MessageContent(text = "No matching cities found", modifier = Modifier.fillMaxSize())
+                    MessageContent(
+                        text = stringResource(R.string.search_no_results_message),
+                        modifier = Modifier.fillMaxSize(),
+                    )
                 } else {
                     LocationResultsList(
                         results = locations,
@@ -77,13 +82,16 @@ private fun SearchField(
         value = query,
         onValueChange = onQueryChange,
         modifier = modifier.padding(bottom = 16.dp),
-        label = { Text(text = "City") },
+        label = { Text(text = stringResource(R.string.search_field_label)) },
         singleLine = true,
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
         keyboardActions = KeyboardActions(onSearch = { onSubmit() }),
         trailingIcon = {
             IconButton(onClick = onSubmit) {
-                Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = stringResource(R.string.action_search),
+                )
             }
         },
     )

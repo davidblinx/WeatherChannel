@@ -1,6 +1,7 @@
 package com.david.weatherchannel.presentation.weather.details.mapper
 
 import com.david.weatherchannel.core.mvvm.mapper.Mapper
+import com.david.weatherchannel.core.resources.R
 import com.david.weatherchannel.domain.entity.weather.CurrentWeatherEntity
 import com.david.weatherchannel.presentation.weather.details.model.WeatherDetailItemUiModel
 import java.time.Instant
@@ -14,15 +15,27 @@ class WeatherDetailItemsUiModelMapper @Inject constructor() :
     override fun map(from: CurrentWeatherEntity): List<WeatherDetailItemUiModel> {
         val zoneOffset = ZoneOffset.ofTotalSeconds(from.timezone)
         return listOf(
-            WeatherDetailItemUiModel(label = "Humidity", value = "${from.main.humidity}%"),
-            WeatherDetailItemUiModel(label = "Wind", value = "%.1f m/s".format(from.wind.speed)),
-            WeatherDetailItemUiModel(label = "Pressure", value = "${from.main.pressure} hPa"),
+            WeatherDetailItemUiModel(labelRes = R.string.weather_detail_label_humidity, value = "${from.main.humidity}%"),
             WeatherDetailItemUiModel(
-                label = "Visibility",
+                labelRes = R.string.weather_detail_label_wind,
+                value = "%.1f m/s".format(from.wind.speed),
+            ),
+            WeatherDetailItemUiModel(
+                labelRes = R.string.weather_detail_label_pressure,
+                value = "${from.main.pressure} hPa",
+            ),
+            WeatherDetailItemUiModel(
+                labelRes = R.string.weather_detail_label_visibility,
                 value = "%.1f km".format(from.visibility / METERS_PER_KILOMETER),
             ),
-            WeatherDetailItemUiModel(label = "Sunrise", value = from.sys.sunrise.toLocalTime(zoneOffset)),
-            WeatherDetailItemUiModel(label = "Sunset", value = from.sys.sunset.toLocalTime(zoneOffset)),
+            WeatherDetailItemUiModel(
+                labelRes = R.string.weather_detail_label_sunrise,
+                value = from.sys.sunrise.toLocalTime(zoneOffset),
+            ),
+            WeatherDetailItemUiModel(
+                labelRes = R.string.weather_detail_label_sunset,
+                value = from.sys.sunset.toLocalTime(zoneOffset),
+            ),
         )
     }
 

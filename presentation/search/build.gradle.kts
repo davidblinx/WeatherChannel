@@ -10,6 +10,7 @@ dependencies {
     implementation(projects.core.mvvm)
     implementation(projects.core.navigation)
     implementation(projects.core.network)
+    implementation(projects.core.resources)
     implementation(projects.core.uiState)
     implementation(projects.presentation.shared.ui)
 

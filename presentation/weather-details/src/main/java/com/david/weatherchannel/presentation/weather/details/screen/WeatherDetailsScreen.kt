@@ -13,9 +13,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import com.david.weatherchannel.core.resources.R
 import com.david.weatherchannel.core.ui.state.RenderContent
 import com.david.weatherchannel.presentation.shared.ui.ErrorContent
 import com.david.weatherchannel.presentation.shared.ui.LoadingContent
@@ -37,7 +39,10 @@ fun WeatherDetailsScreen(
         modifier = modifier.fillMaxSize(),
         floatingActionButton = {
             FloatingActionButton(onClick = { onAction(WeatherDetailsAction.OnSearchClick) }) {
-                Icon(imageVector = Icons.Default.Search, contentDescription = "Search for a city")
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = stringResource(R.string.weather_details_search_content_description),
+                )
             }
         },
     ) { innerPadding ->

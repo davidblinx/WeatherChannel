@@ -1,9 +1,12 @@
 package com.david.weatherchannel.presentation.weather.details.mapper
 
+import android.content.Context
 import com.david.weatherchannel.core.mvvm.mapper.Mapper
 import com.david.weatherchannel.domain.entity.weather.ForecastEntity
+import com.david.weatherchannel.core.resources.R
 import com.david.weatherchannel.domain.entity.weather.ForecastItemEntity
 import com.david.weatherchannel.presentation.weather.details.model.ForecastDayUiModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset
@@ -13,7 +16,9 @@ import javax.inject.Inject
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
-class ForecastDayUiModelMapper @Inject constructor() : Mapper<ForecastEntity, List<ForecastDayUiModel>> {
+class ForecastDayUiModelMapper @Inject constructor(
+    @ApplicationContext private val context: Context,
+) : Mapper<ForecastEntity, List<ForecastDayUiModel>> {
 
     override fun map(from: ForecastEntity): List<ForecastDayUiModel> {
         val zoneOffset = ZoneOffset.ofTotalSeconds(from.city.timezone)
@@ -28,7 +33,7 @@ class ForecastDayUiModelMapper @Inject constructor() : Mapper<ForecastEntity, Li
     private fun List<ForecastItemEntity>.toDayUiModel(index: Int, zoneOffset: ZoneOffset): ForecastDayUiModel {
         val representative = minByOrNull { abs(it.dt.toLocalHour(zoneOffset) - NOON_HOUR) } ?: first()
         return ForecastDayUiModel(
-            dayLabel = if (index == 0) TODAY_LABEL else representative.dt.toDayLabel(zoneOffset),
+            dayLabel = if (index == 0) context.getString(R.string.today) else representative.dt.toDayLabel(zoneOffset),
             iconUrl = representative.weather.firstOrNull()?.icon.orEmpty(),
             highTemp = "${maxOf { it.main.tempMax }.roundToInt()}°",
             lowTemp = "${minOf { it.main.tempMin }.roundToInt()}°",
@@ -50,6 +55,5 @@ class ForecastDayUiModelMapper @Inject constructor() : Mapper<ForecastEntity, Li
         const val FORECAST_DAY_COUNT = 5
         const val NOON_HOUR = 12
         const val PERCENTAGE_MULTIPLIER = 100
-        const val TODAY_LABEL = "Today"
     }
 }
