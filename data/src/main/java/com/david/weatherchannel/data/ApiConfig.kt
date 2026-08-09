@@ -6,4 +6,5 @@ object ApiConfig {
     const val WEATHER_API_VERSION = BuildConfig.WEATHER_API_VERSION
     const val GEOCODING_BASE_URL = BuildConfig.GEOCODING_BASE_URL
     const val GEOCODING_API_VERSION = BuildConfig.GEOCODING_API_VERSION
+    const val UNITS_METRIC = "metric"
 }
