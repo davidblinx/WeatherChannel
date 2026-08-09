@@ -1,5 +1,6 @@
-package com.david.weatherchannel.data.repository
+package com.david.weatherchannel.data.di
 
+import com.david.weatherchannel.data.repository.WeatherRepositoryImpl
 import com.david.weatherchannel.domain.repository.WeatherRepository
 import dagger.Binds
 import dagger.Module
