@@ -19,3 +19,12 @@ fun <T> ApiResponse<T>.getOrNull(): T? = when (this) {
     is ApiResponse.Success -> data
     is ApiResponse.Failure -> null
 }
+
+@Suppress("UNCHECKED_CAST")
+inline fun <reified T, reified V> ApiResponse<T>.mapSuccess(
+    crossinline transformer: T.() -> V,
+): ApiResponse<V> = if (this is ApiResponse.Success<T>) {
+    ApiResponse.Success(data = transformer(data))
+} else {
+    this as ApiResponse<V>
+}

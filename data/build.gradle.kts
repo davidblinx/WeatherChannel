@@ -40,5 +40,7 @@ android {
 }
 
 dependencies {
-    api(projects.core.network)
+    implementation(projects.core.network)
+    implementation(projects.domain)
+    implementation(projects.core.mvvm)
 }
