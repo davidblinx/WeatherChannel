@@ -105,7 +105,6 @@ inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() = configu
         else -> TODO("Unsupported project extension $this ${T::class}")
     }.apply {
         freeCompilerArgs.addAll(
-            // Enable experimental coroutines APIs, including Flow
             "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
         )
     }

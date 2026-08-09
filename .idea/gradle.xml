@@ -27,6 +27,7 @@
             <option value="$PROJECT_DIR$/core/coil" />
             <option value="$PROJECT_DIR$/core/coroutines" />
             <option value="$PROJECT_DIR$/core/mvi" />
+            <option value="$PROJECT_DIR$/core/network" />
           </set>
         </option>
       </GradleProjectSettings>

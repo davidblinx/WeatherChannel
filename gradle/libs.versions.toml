@@ -12,7 +12,7 @@ kotlin-serialization = "1.11.0"
 kotlin-coroutines = "1.11.0"
 
 # KSP
-ksp = "2.3.10"
+ksp = "2.3.11"
 
 # Dagger/Hilt
 dagger = "2.60.1"
@@ -27,6 +27,9 @@ compose-graphics = "1.1.0"
 
 # Coil
 coil = "3.5.0"
+
+# Ktor
+ktor = "3.5.2"
 
 # Gradle
 gradlePlugins-agp = "9.3.1"
@@ -112,6 +115,12 @@ compose-graphics-shapes = { group = "androidx.graphics", name = "graphics-shapes
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
+# Ktor
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
 # Dagger/Hilt
 hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "dagger" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger" }
@@ -169,6 +178,13 @@ coroutines = [
 coil = [
     "coil-compose",
     "coil-network-okhttp",
+]
+
+ktor = [
+    "ktor-core",
+    "ktor-okhttp",
+    "ktor-content-negotiation",
+    "ktor-serialization-json",
 ]
 
 [plugins]
