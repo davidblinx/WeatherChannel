@@ -4,6 +4,7 @@ plugins {
 }
 
 dependencies {
+    implementation(projects.core.coroutines)
     implementation(projects.core.network)
     implementation(projects.core.mvvm)
 }

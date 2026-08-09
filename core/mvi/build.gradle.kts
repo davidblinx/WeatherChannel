@@ -7,7 +7,6 @@ plugins {
 dependencies {
     implementation(projects.core.coroutines)
 
-    implementation(libs.bundles.coroutines)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
 }

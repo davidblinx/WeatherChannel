@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation(libs.bundles.coroutines)
+    api(libs.bundles.coroutines)
 
     testImplementation(libs.unit.test.junit)
     testImplementation(libs.unit.test.coroutines)

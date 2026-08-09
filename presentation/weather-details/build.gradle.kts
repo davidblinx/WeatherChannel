@@ -7,7 +7,11 @@ plugins {
 dependencies {
     implementation(projects.domain)
     implementation(projects.core.mvi)
+    implementation(projects.core.mvvm)
     implementation(projects.core.navigation)
+    implementation(projects.core.network)
+    implementation(projects.core.uiState)
+    implementation(projects.core.coil)
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)

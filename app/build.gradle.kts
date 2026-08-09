@@ -20,6 +20,7 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
     implementation(libs.androidx.navigation3.ui)
     testImplementation(libs.unit.test.junit)
     androidTestImplementation(libs.androidx.test.junit)

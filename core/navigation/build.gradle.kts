@@ -7,7 +7,7 @@ plugins {
 
 dependencies {
     api(libs.androidx.navigation3.runtime)
-    implementation(libs.bundles.coroutines)
+    implementation(projects.core.coroutines)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 

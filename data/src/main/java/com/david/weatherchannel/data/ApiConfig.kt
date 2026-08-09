@@ -7,4 +7,5 @@ object ApiConfig {
     const val GEOCODING_BASE_URL = BuildConfig.GEOCODING_BASE_URL
     const val GEOCODING_API_VERSION = BuildConfig.GEOCODING_API_VERSION
     const val UNITS_METRIC = "metric"
+    const val WEATHER_ICON_BASE_URL = "https://openweathermap.org/payload/api/media/file"
 }
