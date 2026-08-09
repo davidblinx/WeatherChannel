@@ -41,7 +41,7 @@ fun WeatherDetailsScreen(
             }
         },
     ) { innerPadding ->
-        if (state.latitude == null || state.longitude == null) {
+        if (state.isLocationUnavailable) {
             NoLocationSelected(
                 onSearchClick = { onAction(WeatherDetailsAction.OnSearchClick) },
                 modifier = Modifier.fillMaxSize().padding(innerPadding),

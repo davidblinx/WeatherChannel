@@ -37,6 +37,9 @@ coil = "3.5.0"
 # Ktor
 ktor = "3.5.2"
 
+# Google Play services
+play-services-location = "21.4.0"
+
 # Gradle
 gradlePlugins-agp = "9.3.1"
 gradlePlugins-androidTools = "32.3.1"
@@ -135,6 +138,9 @@ ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlin
 # Navigation
 androidx-navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "androidx-navigation3" }
 androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "androidx-navigation3" }
+
+# Google Play services
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "play-services-location" }
 
 # Dagger/Hilt
 hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "dagger" }

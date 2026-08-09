@@ -7,5 +7,6 @@ import com.david.weatherchannel.core.ui.state.toLoading
 data class WeatherDetailsScreenState(
     val latitude: Double? = null,
     val longitude: Double? = null,
+    val isLocationUnavailable: Boolean = false,
     val weatherContent: UIStateHolder<WeatherDetailsContentUiModel> = toLoading(),
 ) : State

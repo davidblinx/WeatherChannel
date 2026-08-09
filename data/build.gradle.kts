@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(projects.core.network)
+    implementation(projects.core.location)
     implementation(projects.domain)
     implementation(projects.core.mvvm)
 }
